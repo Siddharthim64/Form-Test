@@ -54,6 +54,23 @@
         .back-link:hover {
             background-color: #357ABD;
         }
+        .login-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .login-link:hover {
+            background-color: #357ABD;
+        }
+        .uploaded-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -122,7 +139,11 @@
             <p id="displayMessage"></p>
         </div>
 
-        <a class="back-link" href="index.html">Back to Form</a>
+        
+        </div>
+
+        <a class="back-link" href="Login.html">Back to Form</a>
+        <a class="login-link" href="index.html">Go to Login</a>
     </div>
 
     <script>
@@ -131,7 +152,7 @@
         document.getElementById('displayName').textContent = urlParams.get('name') || 'N/A';
         document.getElementById('displayEmail').textContent = urlParams.get('email') || 'N/A';
 
-          // Display uploaded file if present
+        // Display uploaded file if present
         const fileName = urlParams.get('file');
         if (fileName) {
             document.getElementById('fileMessage').textContent = `Uploaded File: ${fileName}`;
@@ -141,6 +162,7 @@
         } else {
             document.getElementById('fileMessage').textContent = 'No file uploaded.';
         }
+
         document.getElementById('displayInterests').textContent = urlParams.getAll('interests').join(', ') || 'N/A';
         
         const favoriteColor = urlParams.get('colorPicker') || 'N/A';
@@ -154,6 +176,8 @@
         document.getElementById('displayRange').textContent = urlParams.get('range') || 'N/A';
         document.getElementById('displaySearch').textContent = urlParams.get('search') || 'N/A';
         document.getElementById('displayMessage').textContent = urlParams.get('message') || 'N/A';
+
+        
     </script>
 
 </body>
