@@ -85,17 +85,16 @@
             const password = document.getElementById('password').value;
 
             if (username === 'Siddharth' && password === 'Control88') {
-                sessionStorage.setItem('loggedIn', 'true'); // Set login flag
-                window.location.href = 'Login.html'; // Redirect to login page
-                return false; // Prevent form submission
+                window.location.href = 'Login.html'; // Ensure Login.html is correctly named
+                return false;
             } else {
                 alert('Invalid username or password.');
-                return false; // Prevent form submission
+                return false;
             }
         }
 
         function clearForm() {
-            document.getElementById('loginForm').reset(); // Clear all inputs
+            document.getElementById('loginForm').reset();
         }
     </script>
 
