@@ -141,16 +141,6 @@
         document.getElementById('displayColor').textContent = favoriteColor;
         document.getElementById('colorBox').style.backgroundColor = favoriteColor;
 
-        // Format the date
-        const dateParam = urlParams.get('date');
-        if (dateParam) {
-            const dateObj = new Date(dateParam);
-            const options = { day: '2-digit', month: 'long', year: 'numeric' };
-            document.getElementById('displayDate').textContent = dateObj.toLocaleDateString('en-US', options);
-        } else {
-            document.getElementById('displayDate').textContent = 'N/A';
-        }
-
         document.getElementById('displayCountry').textContent = urlParams.get('countrySelect') || 'N/A';
         document.getElementById('displayHobbies').textContent = urlParams.getAll('hobbiesSelect').join(', ') || 'N/A';
         document.getElementById('displayDate').textContent = urlParams.get('datePicker') || 'N/A';
