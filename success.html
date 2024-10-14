@@ -150,6 +150,7 @@
 
         // Display Date
         const dateInput = urlParams.get('datePicker') || 'N/A';
+          document.getElementById('displayDate').textContent = dateInput !== 'N/A' ? formatDate(dateInput) : 'N/A';
 
         document.getElementById('displayCountry').textContent = urlParams.get('countrySelect') || 'N/A';
         document.getElementById('displayHobbies').textContent = urlParams.getAll('hobbiesSelect').join(', ') || 'N/A';
