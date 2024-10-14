@@ -143,7 +143,7 @@
 
         // Function to format the date
         function formatDate(dateString) {
-            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const options = { day: 'numeric', month: 'numeric', year: 'numeric' };
             const date = new Date(dateString);
             return date.toLocaleDateString('en-US', options);
         }
