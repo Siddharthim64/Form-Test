@@ -77,7 +77,6 @@
                 <label for="genderMale">Male</label>
                 <input type="radio" id="genderFemale" name="genderSelect" value="female">
                 <label for="genderFemale">Female</label>
-                
             </div>
 
             <label>Choose Your Interests:</label>
@@ -141,6 +140,11 @@
     </div>
 
     <script>
+        // Check if user is logged in
+        if (!sessionStorage.getItem('loggedIn')) {
+            window.location.href = 'index.html'; // Redirect to login page if not logged in
+        }
+
         const rangeInput = document.getElementById('rangeInput');
         const rangeValue = document.getElementById('rangeValue');
 
