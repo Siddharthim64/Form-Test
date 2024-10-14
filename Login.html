@@ -140,6 +140,16 @@
     </div>
 
     <script>
+
+        const datePicker = document.getElementById('datePicker');
+    const formattedDate = document.getElementById('formattedDate');
+
+    datePicker.addEventListener('change', function() {
+        const selectedDate = new Date(datePicker.value);
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        formattedDate.textContent = selectedDate.toLocaleDateString('en-US', options);
+    }); 
+        
         const rangeInput = document.getElementById('rangeInput');
         const rangeValue = document.getElementById('rangeValue');
 
