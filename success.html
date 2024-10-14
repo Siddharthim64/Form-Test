@@ -141,9 +141,19 @@
         document.getElementById('displayColor').textContent = favoriteColor;
         document.getElementById('colorBox').style.backgroundColor = favoriteColor;
 
+        // Function to format the date
+        function formatDate(dateString) {
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        // Display Date
+        const dateInput = urlParams.get('datePicker') || 'N/A';
+
         document.getElementById('displayCountry').textContent = urlParams.get('countrySelect') || 'N/A';
         document.getElementById('displayHobbies').textContent = urlParams.getAll('hobbiesSelect').join(', ') || 'N/A';
-        document.getElementById('displayDate').textContent = urlParams.get('datePicker') || 'N/A';
+        
         document.getElementById('displayTime').textContent = urlParams.get('timePicker') || 'N/A';
         document.getElementById('displayRange').textContent = urlParams.get('rangeInput') || 'N/A';
         document.getElementById('displaySearch').textContent = urlParams.get('searchField') || 'N/A';
