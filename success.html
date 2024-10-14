@@ -24,11 +24,6 @@
             text-align: center;
             color: #4a90e2;
         }
-        label {
-            margin-top: 10px;
-            display: block;
-            font-weight: bold;
-        }
         .result {
             margin: 10px 0;
             padding: 10px;
@@ -42,7 +37,7 @@
             border-radius: 5px;
             margin-top: 5px;
         }
-        .back-link, .login-link {
+        .back-link {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 15px;
@@ -51,13 +46,8 @@
             text-decoration: none;
             border-radius: 5px;
         }
-        .back-link:hover, .login-link:hover {
+        .back-link:hover {
             background-color: #357ABD;
-        }
-        .uploaded-image {
-            max-width: 100%;
-            height: auto;
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -78,7 +68,6 @@
 
         <div class="result">
             <label>Uploaded File:</label>
-            <img id="uploadedImage" class="uploaded-image" src="" alt="Uploaded Image" style="display: none;">
             <p id="fileMessage"></p>
         </div>
 
@@ -128,45 +117,36 @@
             <p id="displayMessage"></p>
         </div>
 
-        <a class="back-link" href="Login.html">Back to Form</a>
-        <a class="login-link" href="index.html">Go to Login</a>
+        <a class="back-link" href="index.html">Back to Form</a>
     </div>
 
     <script>
-        // Check if user is logged in
-        if (!sessionStorage.getItem('loggedIn')) {
-            window.location.href = 'index.html'; // Redirect to login page if not logged in
-        }
-
         const urlParams = new URLSearchParams(window.location.search);
         
-        document.getElementById('displayName').textContent = urlParams.get('name') || 'N/A';
-        document.getElementById('displayEmail').textContent = urlParams.get('email') || 'N/A';
+        document.getElementById('displayName').textContent = urlParams.get('fullName') || 'N/A';
+        document.getElementById('displayEmail').textContent = urlParams.get('userEmail') || 'N/A';
 
         // Display uploaded file if present
-        const fileName = urlParams.get('file');
+        const fileName = urlParams.get('uploadFile');
         if (fileName) {
             document.getElementById('fileMessage').textContent = `Uploaded File: ${fileName}`;
-            const img = document.getElementById('uploadedImage');
-            img.src = URL.createObjectURL(new File([], fileName)); // Update this line based on how the file is processed
-            img.style.display = 'block';
         } else {
             document.getElementById('fileMessage').textContent = 'No file uploaded.';
         }
 
-        document.getElementById('displayInterests').textContent = urlParams.getAll('interests').join(', ') || 'N/A';
+        document.getElementById('displayInterests').textContent = urlParams.getAll('interestsSelect').join(', ') || 'N/A';
         
         const favoriteColor = urlParams.get('colorPicker') || 'N/A';
         document.getElementById('displayColor').textContent = favoriteColor;
         document.getElementById('colorBox').style.backgroundColor = favoriteColor;
 
-        document.getElementById('displayCountry').textContent = urlParams.get('country') || 'N/A';
-        document.getElementById('displayHobbies').textContent = urlParams.getAll('hobbies').join(', ') || 'N/A';
-        document.getElementById('displayDate').textContent = urlParams.get('date') || 'N/A';
-        document.getElementById('displayTime').textContent = urlParams.get('time') || 'N/A';
-        document.getElementById('displayRange').textContent = urlParams.get('range') || 'N/A';
-        document.getElementById('displaySearch').textContent = urlParams.get('search') || 'N/A';
-        document.getElementById('displayMessage').textContent = urlParams.get('message') || 'N/A';
+        document.getElementById('displayCountry').textContent = urlParams.get('countrySelect') || 'N/A';
+        document.getElementById('displayHobbies').textContent = urlParams.getAll('hobbiesSelect').join(', ') || 'N/A';
+        document.getElementById('displayDate').textContent = urlParams.get('datePicker') || 'N/A';
+        document.getElementById('displayTime').textContent = urlParams.get('timePicker') || 'N/A';
+        document.getElementById('displayRange').textContent = urlParams.get('rangeInput') || 'N/A';
+        document.getElementById('displaySearch').textContent = urlParams.get('searchField') || 'N/A';
+        document.getElementById('displayMessage').textContent = urlParams.get('messageArea') || 'N/A';
     </script>
 
 </body>
