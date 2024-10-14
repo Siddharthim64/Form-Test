@@ -42,7 +42,7 @@
             border-radius: 5px;
             margin-top: 5px;
         }
-        .back-link {
+        .back-link, .login-link {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 15px;
@@ -51,19 +51,7 @@
             text-decoration: none;
             border-radius: 5px;
         }
-        .back-link:hover {
-            background-color: #357ABD;
-        }
-        .login-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: #4a90e2;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .login-link:hover {
+        .back-link:hover, .login-link:hover {
             background-color: #357ABD;
         }
         .uploaded-image {
@@ -92,7 +80,8 @@
             <label>Uploaded File:</label>
             <img id="uploadedImage" class="uploaded-image" src="" alt="Uploaded Image" style="display: none;">
             <p id="fileMessage"></p>
-        
+        </div>
+
         <div class="result">
             <label>Interests:</label>
             <p id="displayInterests"></p>
@@ -139,14 +128,16 @@
             <p id="displayMessage"></p>
         </div>
 
-        
-        </div>
-
         <a class="back-link" href="Login.html">Back to Form</a>
         <a class="login-link" href="index.html">Go to Login</a>
     </div>
 
     <script>
+        // Check if user is logged in
+        if (!sessionStorage.getItem('loggedIn')) {
+            window.location.href = 'index.html'; // Redirect to login page if not logged in
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
         
         document.getElementById('displayName').textContent = urlParams.get('name') || 'N/A';
@@ -176,8 +167,6 @@
         document.getElementById('displayRange').textContent = urlParams.get('range') || 'N/A';
         document.getElementById('displaySearch').textContent = urlParams.get('search') || 'N/A';
         document.getElementById('displayMessage').textContent = urlParams.get('message') || 'N/A';
-
-        
     </script>
 
 </body>
