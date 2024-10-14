@@ -135,16 +135,11 @@
             <button type="submit">Submit</button>
             <button type="button" onclick="clearForm()">Cancel</button>
         </form>
-        
+
         <div id="loading">Loading... Please wait.</div>
     </div>
 
     <script>
-        // Check if user is logged in
-        if (!sessionStorage.getItem('loggedIn')) {
-            window.location.href = 'index.html'; // Redirect to login page if not logged in
-        }
-
         const rangeInput = document.getElementById('rangeInput');
         const rangeValue = document.getElementById('rangeValue');
 
