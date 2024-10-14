@@ -147,7 +147,7 @@
 
     datePicker.addEventListener('change', function() {
         const selectedDate = new Date(datePicker.value);
-        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const options = { month: 'numeric', day: 'numeric', year: 'numeric' };
         formattedDate.textContent = selectedDate.toLocaleDateString('en-US', options);
     }); 
         
