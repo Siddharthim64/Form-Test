@@ -141,23 +141,21 @@
     </div>
 
     <script>
-
         const datePicker = document.getElementById('datePicker');
-    const formattedDate = document.getElementById('formattedDate');
+        const formattedDate = document.getElementById('formattedDate');
 
-    datePicker.addEventListener('change', function() {
-        const selectedDate = new Date(datePicker.value);
-        const options = { day: 'numeric', month: 'numeric', year: 'numeric' };
-        formattedDate.textContent = selectedDate.toLocaleDateString('en-US', options);
-    }); 
-        
-         const rangeInput = document.getElementById('rangeInput');
+        datePicker.addEventListener('change', function() {
+            const selectedDate = new Date(datePicker.value);
+            const options = { day: 'numeric', month: 'numeric', year: 'numeric' };
+            formattedDate.textContent = selectedDate.toLocaleDateString('en-US', options);
+        });
+
+        const rangeInput = document.getElementById('rangeInput');
         const rangeValue = document.getElementById('rangeValue');
 
         rangeInput.addEventListener('input', function() {
             rangeValue.textContent = this.value;
         });
-
 
         function clearForm() {
             const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="file"], input[type="date"], input[type="time"], input[type="range"], input[type="color"], input[type="search"], textarea, select');
@@ -168,9 +166,6 @@
                     input.value = ''; // Clear text inputs
                 }
             });
-        }
-
-        
         }
     </script>
 
