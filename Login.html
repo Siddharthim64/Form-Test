@@ -141,6 +141,13 @@
     </div>
 
     <script>
+
+         if (localStorage.getItem('fromIndex') !== 'true') {
+            window.location.href = 'index.html'; // Redirect if not from index.html
+        } else {
+            localStorage.removeItem('fromIndex'); // Remove the flag to prevent back navigation
+        }
+        
         const datePicker = document.getElementById('datePicker');
         const formattedDate = document.getElementById('formattedDate');
 
