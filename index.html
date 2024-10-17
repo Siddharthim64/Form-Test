@@ -80,22 +80,18 @@
     </div>
 
     <script>
-
- // Check if the user came from index.html
-        if (localStorage.getItem('fromIndex') !== 'true') {
-            window.location.href = 'index.html'; // Redirect if not from index.html
-        }
         
         function validateLogin() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (username === 'Siddharth' && password === 'Control88') {
-                window.location.href = 'Login.html'; // Ensure Login.html is correctly named
-                return false;
+             if (username === 'Siddharth' && password === 'Control88') {
+                localStorage.setItem('fromIndex', 'true'); // Set flag for access
+                window.location.href = 'Login.html'; // Redirect to Login.html
+                return false; // Prevent form submission
             } else {
                 alert('Invalid username or password.');
-                return false;
+                return false; // Prevent form submission
             }
         }
 
